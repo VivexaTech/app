@@ -66,6 +66,8 @@ export default function Code() {
     };
 
     return (
+        <>
+                    <title>Vivexa Code Editor</title>
         <div className="code-container">
 
             <header className="code-header">
@@ -104,5 +106,6 @@ export default function Code() {
             />
 
         </div>
+        </>
     );
 }

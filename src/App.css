@@ -1,14 +1,27 @@
 :root {
   --primary: #8400ff;
   --primary-soft: rgba(132, 0, 255, 0.08);
-  --bg-main: #f8f9fa; /* Off-white for a premium feel */
-  --surface: #ffffff; /* Pure white for cards */
+  --bg-main: #f8f9fa;
+  /* Off-white for a premium feel */
+  --surface: #ffffff;
+  /* Pure white for cards */
   --glass-border: rgba(0, 0, 0, 0.05);
   --text-main: #404068;
   --text-dim: #8e8e93;
   --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
@@ -16,6 +29,72 @@ body {
   margin: 0;
 }
 
+
+@media screen and (min-width: 900px) {
+
+  /* Full width layout */
+  body{
+    display:block;
+  }
+
+  /* Header wider */
+  .header{
+    padding:20px 60px;
+  }
+
+  /* Banner */
+  .banner{
+    width:80%;
+    height:220px;
+  }
+
+  /* Home grid */
+  .home{
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    padding:40px 8% 140px 8%;
+  }
+
+  /* Tools grid */
+  .tools{
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    padding:40px 8% 140px 8%;
+  }
+
+  /* Cards bigger */
+  .card{
+    padding:26px;
+  }
+
+  .card i{
+    width:70px;
+    height:70px;
+    font-size:34px;
+  }
+
+  .card h5{
+    font-size:14px;
+  }
+
+  /* Course section center */
+  .course{
+    max-width:900px;
+    margin:auto;
+  }
+
+  /* Tool pages wider */
+  .color-picker-container,
+  .img-compressor-container{
+    max-width:650px;
+  }
+
+  /* Bottom nav slightly bigger */
+  .mobile-nav{
+    max-width:420px;
+  }
+
+}
 /* --- Header: Clean & Airy --- */
 .header {
   display: flex;
@@ -64,8 +143,10 @@ body {
 .banner::after {
   content: '';
   position: absolute;
-  top: -10%; left: -10%;
-  width: 150px; height: 150px;
+  top: -10%;
+  left: -10%;
+  width: 150px;
+  height: 150px;
   background: rgba(255, 255, 255, 0.15);
   filter: blur(40px);
   border-radius: 50%;
@@ -85,7 +166,8 @@ body {
   border-radius: 24px;
   border: 1px solid var(--glass-border);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Soft lift */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  /* Soft lift */
 }
 
 .home .card:active {
@@ -107,7 +189,8 @@ body {
   padding: 10px 16px;
   border-radius: 32px;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  /* Lighter shadow */
   z-index: 1000;
 }
 
@@ -133,6 +216,7 @@ body {
   margin-bottom: 4px;
   transition: transform 0.3s ease;
 }
+
 .mobile-nav .active {
   color: var(--primary);
 }
@@ -144,7 +228,8 @@ body {
 }
 
 /* Icons styling for Light Mode */
-.user i, .notification i {
+.user i,
+.notification i {
   width: 40px;
   height: 40px;
   display: flex;
@@ -156,6 +241,7 @@ body {
   border: 1px solid var(--glass-border);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
+
 .home .card {
   display: flex;
   flex-direction: column;
@@ -174,10 +260,10 @@ body {
   color: var(--primary);
   position: relative;
   z-index: 1;
-  
+
   /* Subtle glow that feels cleaner in light mode */
   filter: drop-shadow(0 4px 8px rgba(132, 0, 255, 0.25));
-  
+
   /* Optional: Add a very soft circle background behind the icon */
   background: var(--primary-soft);
   width: 60px;
@@ -220,7 +306,7 @@ body {
 }
 
 /* Container Spacing */
-.course{
+.course {
   width: 100%;
   padding: 15px;
   display: flex;
@@ -237,19 +323,21 @@ body {
   gap: 16px;
   align-items: center;
   padding: 16px;
-  border-radius: 24px; /* Slightly rounder for a modern feel */
-  
+  border-radius: 24px;
+  /* Slightly rounder for a modern feel */
+
   /* Pure white surface on off-white background */
-  background: var(--surface); 
+  background: var(--surface);
   border: 1px solid var(--glass-border);
-  
+
   /* Subtle, realistic shadow instead of heavy glow */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .course-card:active {
-  transform: scale(0.97); /* Tactile feedback for mobile */
+  transform: scale(0.97);
+  /* Tactile feedback for mobile */
   background: #fdfdff;
   border-color: var(--primary-soft);
 }
@@ -259,7 +347,8 @@ body {
   width: 85px;
   height: 85px;
   object-fit: cover;
-  border-radius: 18px; /* Matches card aesthetic */
+  border-radius: 18px;
+  /* Matches card aesthetic */
   border: 2px solid #f0f0f3;
 }
 
@@ -268,7 +357,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  flex: 1; /* Takes up remaining space */
+  flex: 1;
+  /* Takes up remaining space */
 }
 
 .course-info h4 {
@@ -308,7 +398,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.8px;
   color: white;
-  
+
   /* Solid vibrant gradient */
   background: linear-gradient(135deg, var(--primary), #6200bd);
   cursor: pointer;
@@ -322,4 +412,385 @@ body {
 .join-btn:active {
   transform: translateY(2px);
   box-shadow: 0 2px 6px rgba(132, 0, 255, 0.3);
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 20px 5% 120px 5%;
+}
+
+.tools .card {
+  /* 1. Missing Base Card Styles (Added these) */
+  aspect-ratio: 1/1;
+  background: var(--surface);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+  /* 2. Your Existing Flex & Layout Styles */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 3. Missing Active State for Tactile Feedback (Added this) */
+.tools .card:active {
+  transform: scale(0.96);
+  background: #f1f1f4;
+}
+
+/* Icon Styling: Using a soft "Aura" instead of a heavy shadow */
+.tools .card i {
+  font-size: 32px;
+  color: var(--primary);
+  position: relative;
+  z-index: 1;
+
+  /* Subtle glow that feels cleaner in light mode */
+  filter: drop-shadow(0 4px 8px rgba(132, 0, 255, 0.25));
+
+  /* Optional: Add a very soft circle background behind the icon */
+  background: var(--primary-soft);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  margin-bottom: 4px;
+}
+
+/* Typography Styling */
+.tools .card h5 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+.tools .card::after {
+  content: 'Use Now';
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+/* Hover/Active State refinement */
+.tools .card:active i {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: #fff;
+  filter: drop-shadow(0 8px 15px rgba(132, 0, 255, 0.4));
+}
+
+/* Container */
+.color-picker-container {
+  width: 90%;
+  max-width: 420px;
+  margin: 20px auto 120px auto;
+  padding: 20px;
+  border-radius: 24px;
+
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Color Picker Title */
+.color-picker-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #2d0057, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+/* Icon Styling */
+.color-picker-title i {
+  font-size: 20px;
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+  filter: drop-shadow(0 4px 10px rgba(132, 0, 255, 0.35));
+  background: var(--primary-soft);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+/* Color Input */
+.color-picker-input {
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Upload Input */
+.color-picker-upload {
+  width: 100%;
+  font-size: 12px;
+  padding: 8px;
+  border-radius: 12px;
+
+  border: 1px solid var(--glass-border);
+  background: var(--bg-main);
+  color: var(--text-dim);
+}
+
+/* Canvas */
+.color-picker-canvas {
+  width: 100%;
+  border-radius: 16px;
+  cursor: crosshair;
+  border: 1px solid var(--glass-border);
+}
+
+/* Preview Color Box */
+.color-picker-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Color Values */
+.color-picker-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Button */
+.color-picker-btn {
+  border: none;
+  padding: 10px 18px;
+
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #6200bd);
+
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  box-shadow: 0 4px 12px rgba(132, 0, 255, 0.2);
+}
+
+.color-picker-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(132, 0, 255, 0.3);
+}
+
+/* Container */
+.img-compressor-container {
+  width: 90%;
+  max-width: 420px;
+  margin: 20px auto 120px auto;
+  padding: 20px;
+
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Title */
+.img-compressor-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  background: linear-gradient(90deg, #2d0057, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.img-compressor-title i {
+  font-size: 20px;
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+
+  background: var(--primary-soft);
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  filter: drop-shadow(0 4px 10px rgba(132, 0, 255, 0.35));
+}
+
+/* Upload */
+.img-compressor-upload {
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: var(--bg-main);
+  font-size: 12px;
+}
+
+/* Preview Image */
+.img-compressor-preview {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+/* Info Text */
+.img-compressor-info {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Slider */
+.img-compressor-slider {
+  width: 100%;
+}
+
+/* Width Input */
+.img-compressor-width {
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  font-size: 12px;
+}
+
+/* Size Info */
+.img-compressor-size {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+/* Button */
+.img-compressor-btn {
+  border: none;
+  padding: 10px;
+
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(135deg, var(--primary), #6200bd);
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(132, 0, 255, 0.2);
+}
+
+.img-compressor-btn:active {
+  transform: translateY(2px);
+}
+
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #020617;
+  padding: 14px 18px;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+header h3,
+header h4 {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* BUTTONS */
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.controls button {
+  background: #2563eb;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.controls button:hover {
+  background: #1d4ed8;
+}
+
+/* MAIN CONTAINER */
+
+.code-container {
+  background: #0f172a;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* MONACO EDITOR FIX */
+
+.monaco-editor {
+  flex: 1;
+  user-select: text !important;
+}
+
+.monaco-editor .view-lines {
+  cursor: text;
 }

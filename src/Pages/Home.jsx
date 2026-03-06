@@ -6,6 +6,7 @@ import HomeCards from "../components/Home-Cards";
 export default function Home() {
     return (
         <>
+            <title>Home</title>
             <Header />
             <Banner />
             <HomeCards />

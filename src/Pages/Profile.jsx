@@ -1,13 +1,11 @@
 import Header from "../components/Header"
 import Navbar from "../components/Navbar"
-import CourseCards from "../components/CourseCards"
-export default function Course() {
+export default function Profile() {
     return (
         <>
-            <title>Courses</title>
+            <title>Profile</title>
             <Header />
             <Navbar />
-            <CourseCards />
 
         </>
     )
