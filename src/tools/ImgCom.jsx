@@ -54,14 +54,6 @@ export default function ImgCom() {
         }
     }
 
-    function handleWidthChange(e) {
-        const w = e.target.value;
-        setWidth(w);
-
-        if (imgRef.current) {
-            compressImage(imgRef.current, quality, w);
-        }
-    }
 
     function downloadImage() {
         if (!preview) return;

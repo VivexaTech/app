@@ -61,7 +61,7 @@ export default function CourseCards() {
 
                 </div>
 
-                                <div className="course-card">
+                <div className="course-card">
 
                     <div className="course-img">
                         <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course Image" />
