@@ -1,38 +1,325 @@
-.App {
-  text-align: center;
+:root {
+  --primary: #8400ff;
+  --primary-soft: rgba(132, 0, 255, 0.08);
+  --bg-main: #f8f9fa; /* Off-white for a premium feel */
+  --surface: #ffffff; /* Pure white for cards */
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --text-main: #404068;
+  --text-dim: #8e8e93;
+  --nav-bg: rgba(255, 255, 255, 0.8);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* --- Header: Clean & Airy --- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.pagename {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Gradient changed: Dark Purple to Light Purple */
+  background: linear-gradient(to right, #2d0057, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* --- Banner: Vibrant & Soft --- */
+.banner-con {
+  width: 100%;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  width: 90%;
+  height: 160px;
+  background: linear-gradient(135deg, var(--primary) 0%, #6200bd 100%);
+  border-radius: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(132, 0, 255, 0.2);
+}
+
+/* Inner glass shine for the banner */
+.banner::after {
+  content: '';
+  position: absolute;
+  top: -10%; left: -10%;
+  width: 150px; height: 150px;
+  background: rgba(255, 255, 255, 0.15);
+  filter: blur(40px);
+  border-radius: 50%;
+}
+
+/* --- Grid: Depth via Soft Shadows --- */
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 20px 5% 120px 5%;
+}
+
+.home .card {
+  aspect-ratio: 1/1;
+  background: var(--surface);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); /* Soft lift */
+}
+
+.home .card:active {
+  transform: scale(0.96);
+  background: #f1f1f4;
+}
+
+/* --- Navigation: Milk Glass Capsule --- */
+.mobile-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 10px 16px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+  z-index: 1000;
+}
+
+.mobile-nav ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mobile-nav li {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--text-dim);
+  transition: 0.3s;
+  flex: 1;
+}
+
+.mobile-nav li i {
+  font-size: 20px;
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
+}
+.mobile-nav .active {
+  color: var(--primary);
+}
+
+.mobile-nav .active i {
+  transform: translateY(-4px);
+  /* Text shadow is more subtle in light mode */
+  text-shadow: 0 4px 10px rgba(132, 0, 255, 0.2);
+}
+
+/* Icons styling for Light Mode */
+.user i, .notification i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: var(--surface);
+  border-radius: 12px;
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+.home .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+  /* Soft transition for a premium feel */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Icon Styling: Using a soft "Aura" instead of a heavy shadow */
+.home .card i {
+  font-size: 32px;
+  color: var(--primary);
+  position: relative;
+  z-index: 1;
+  
+  /* Subtle glow that feels cleaner in light mode */
+  filter: drop-shadow(0 4px 8px rgba(132, 0, 255, 0.25));
+  
+  /* Optional: Add a very soft circle background behind the icon */
+  background: var(--primary-soft);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  margin-bottom: 4px;
+}
+
+/* Typography Styling */
+.home .card h5 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+}
+
+/* Add a subtle description or "Action" hint for professionalism */
+.home .card::after {
+  content: 'View More';
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+/* Hover/Active State refinement */
+.home .card:active i {
+  transform: scale(1.1);
+  background: var(--primary);
+  color: #fff;
+  filter: drop-shadow(0 8px 15px rgba(132, 0, 255, 0.4));
+}
+
+/* Container Spacing */
+.course{
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* 1. The Card: From Dark Gradient to "Milk Glass" */
+.course-card {
+  width: 90%;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 24px; /* Slightly rounder for a modern feel */
+  
+  /* Pure white surface on off-white background */
+  background: var(--surface); 
+  border: 1px solid var(--glass-border);
+  
+  /* Subtle, realistic shadow instead of heavy glow */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.course-card:active {
+  transform: scale(0.97); /* Tactile feedback for mobile */
+  background: #fdfdff;
+  border-color: var(--primary-soft);
+}
+
+/* 2. Image: Adding a refined border */
+.course-img img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 18px; /* Matches card aesthetic */
+  border: 2px solid #f0f0f3;
+}
+
+/* 3. Text Area: Focus on hierarchy */
+.course-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1; /* Takes up remaining space */
+}
+
+.course-info h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.2px;
+}
+
+.course-info p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+/* Icon inside paragraph (e.g., clock or user icon) */
+.course-info p i {
+  color: var(--primary);
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* 4. Button: Vibrant & Professional */
+.join-btn {
+  margin-top: 8px;
+  border: none;
+  width: fit-content;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
   color: white;
+  
+  /* Solid vibrant gradient */
+  background: linear-gradient(135deg, var(--primary), #6200bd);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(132, 0, 255, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.join-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(132, 0, 255, 0.3);
 }
