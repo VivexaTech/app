@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
+import { useEffect } from "react";
+
+
 
 export default function ImgCom() {
+    useEffect(() => {
+        document.title = "Vivexa Image Compressor";
+    }, []);
 
     const canvasRef = useRef(null);
     const imgRef = useRef(null);
@@ -18,23 +24,22 @@ export default function ImgCom() {
 
         img.onload = () => {
             imgRef.current = img;
-            compressImage(img, quality, width);
+            compressImage(img, quality);
         };
     }
 
-    function compressImage(img, q, w) {
+    function compressImage(img, q) {
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
 
-        const newWidth = w ? parseInt(w) : img.width;
-        const scale = newWidth / img.width;
-        const newHeight = img.height * scale;
+        const width = img.width;
+        const height = img.height;
 
-        canvas.width = newWidth;
-        canvas.height = newHeight;
+        canvas.width = width;
+        canvas.height = height;
 
-        ctx.drawImage(img, 0, 0, newWidth, newHeight);
+        ctx.drawImage(img, 0, 0, width, height);
 
         const data = canvas.toDataURL("image/jpeg", q);
 
@@ -45,14 +50,14 @@ export default function ImgCom() {
     }
 
     function handleQualityChange(e) {
+
         const q = parseFloat(e.target.value);
         setQuality(q);
 
         if (imgRef.current) {
-            compressImage(imgRef.current, q, width);
+            compressImage(imgRef.current, q);
         }
     }
-
 
     function downloadImage() {
         if (!preview) return;
@@ -64,54 +69,54 @@ export default function ImgCom() {
     }
 
     return (
-        <>
-            <title>Vivexa Image Compressor</title>
-            <div className="img-compressor-container">
 
-                <h2 className="img-compressor-title">
-                    <i className="bi bi-image-fill"></i>
-                    Vivexa Image Compressor
-                </h2>
+        <div className="img-compressor-container">
 
-                <input
-                    className="img-compressor-upload"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleUpload}
+            <h2 className="img-compressor-title">
+                <i className="bi bi-image-fill"></i>
+                Vivexa Image Compressor
+            </h2>
+
+            <input
+                className="img-compressor-upload"
+                type="file"
+                accept="image/*"
+                onChange={handleUpload}
+            />
+
+            {preview && (
+                <img
+                    src={preview}
+                    className="img-compressor-preview"
+                    alt="compressed preview"
                 />
+            )}
 
-                {preview && (
-                    <img
-                        src={preview}
-                        className="img-compressor-preview"
-                        alt="preview"
-                    />
-                )}
-
-                <div className="img-compressor-info">Compression Quality</div>
-
-                <input
-                    className="img-compressor-slider"
-                    type="range"
-                    min="0.1"
-                    max="1"
-                    step="0.1"
-                    value={quality}
-                    onChange={handleQualityChange}
-                />
-
-                <div className="img-compressor-size">{sizeInfo}</div>
-
-                <button
-                    className="img-compressor-btn"
-                    onClick={downloadImage}
-                >
-                    Download Image
-                </button>
-
-                <canvas ref={canvasRef} style={{ display: "none" }} />
-
+            <div className="img-compressor-info">
+                Compression Quality
             </div>
-        </>
+
+            <input
+                className="img-compressor-slider"
+                type="range"
+                min="0.1"
+                max="1"
+                step="0.1"
+                value={quality}
+                onChange={handleQualityChange}
+            />
+
+            <div className="img-compressor-size">{sizeInfo}</div>
+
+            <button
+                className="img-compressor-btn"
+                onClick={downloadImage}
+            >
+                Download Image
+            </button>
+
+            <canvas ref={canvasRef} style={{ display: "none" }} />
+
+        </div>
     );
 }
