@@ -6,7 +6,7 @@ export default function CourseCards() {
                 <div className="course-card">
 
                     <div className="course-img">
-                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course Image" />
+                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course" />
                     </div>
 
                     <div className="course-info">
@@ -21,7 +21,7 @@ export default function CourseCards() {
                 <div className="course-card">
 
                     <div className="course-img">
-                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course Image" />
+                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course" />
                     </div>
                     <div className="course-info">
                         <h4>Graphic Desining</h4>
@@ -35,7 +35,7 @@ export default function CourseCards() {
                 <div className="course-card">
 
                     <div className="course-img">
-                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course Image" />
+                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course" />
                     </div>
                     <div className="course-info">
                         <h4>Video Editing</h4>
@@ -49,7 +49,7 @@ export default function CourseCards() {
                 <div className="course-card">
 
                     <div className="course-img">
-                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course Image" />
+                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course" />
                     </div>
                     <div className="course-info">
                         <h4>Data Analyst</h4>
@@ -64,7 +64,7 @@ export default function CourseCards() {
                 <div className="course-card">
 
                     <div className="course-img">
-                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course Image" />
+                        <img src="https://resources.americaneagle.com/aecom-blobs/images/default-source/blog-images/understanding-web-development-frameworks-og-image.jpg?sfvrsn=d289bf2d_1" alt="Course" />
                     </div>
                     <div className="course-info">
                         <h4>UI/UX Desining</h4>
