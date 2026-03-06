@@ -7,7 +7,6 @@ export default function ImgCom() {
 
     const [preview, setPreview] = useState("");
     const [quality, setQuality] = useState(0.8);
-    const [width, setWidth] = useState("");
     const [sizeInfo, setSizeInfo] = useState("");
 
     function handleUpload(e) {
