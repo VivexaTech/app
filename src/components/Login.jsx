@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleGoogleLogin = async () => {
