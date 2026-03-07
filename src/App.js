@@ -11,7 +11,7 @@ import ColPic from "./tools/ColPic";
 import ImgCom from "./tools/ImgCom";
 import Login from "./components/Login";
 function App() {
-  return (
+  return ( 
     <BrowserRouter>
       <AuthProvider>
         <Routes>
