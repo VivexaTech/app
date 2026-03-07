@@ -20,7 +20,7 @@
 //         </>
 //     )
 // }
-export default function HeaderTools() {
+export function HeaderTools() {
     return (
         <>
             <div className="header">
