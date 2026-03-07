@@ -9,7 +9,7 @@ import Profile from "./Pages/Profile";
 import Code from "./tools/Code";
 import ColPic from "./tools/ColPic";
 import ImgCom from "./tools/ImgCom";
-import Login from "./components/Login";
+// import Login from "./components/Login";
 function App() {
   return ( 
     <BrowserRouter>
