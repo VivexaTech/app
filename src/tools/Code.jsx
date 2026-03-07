@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import Editor from "@monaco-editor/react";
-import "./style/Code.css";
 
 export default function Code() {
 
