@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
 
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const handleGoogleLogin = async () => {
     try {
-      const result = await signInWithPopup(auth, provider);
-      setUser(result.user);
+      await signInWithPopup(auth, provider);
 
-      // login ke baad home ya account page
+      // login ke baad home page
       navigate("/");
 
     } catch (error) {
@@ -31,7 +29,10 @@ function Login() {
       <div className="login-card">
 
         <div className="login-logo">
-          <img src="https://media.licdn.com/dms/image/v2/D4D0BAQHDVZSOTCyhig/company-logo_200_200/B4DZmQAAVKJgAI-/0/1759057547562?e=2147483647&v=beta&t=27Mmetjf5dBeJ41BKkApJ94b_nU20tVAan3j0E2iaN4" alt="Vivexa Tech logo" />
+          <img
+            src="https://media.licdn.com/dms/image/v2/D4D0BAQHDVZSOTCyhig/company-logo_200_200/B4DZmQAAVKJgAI-/0/1759057547562?e=2147483647&v=beta&t=27Mmetjf5dBeJ41BKkApJ94b_nU20tVAan3j0E2iaN4"
+            alt="Vivexa Tech logo"
+          />
         </div>
 
         <h2 className="login-title">
