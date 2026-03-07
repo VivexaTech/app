@@ -425,6 +425,7 @@ body {
   align-items: center;
   gap: 16px;
   box-sizing: border-box;
+  margin-bottom: 100px;
 }
 
 /* 1. The Card: From Dark Gradient to "Milk Glass" */
